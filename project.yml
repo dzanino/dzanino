@@ -15,6 +15,13 @@ settings:
     ENABLE_PREVIEWS: "YES"
     DEVELOPMENT_TEAM: 92TUG3FDAV
     CODE_SIGN_STYLE: Automatic
+    CODE_SIGN_IDENTITY: "Apple Development"
+    PROVISIONING_PROFILE_SPECIFIER: ""
+  configs:
+    Debug:
+      xcconfig: Configs/Signing.xcconfig
+    Release:
+      xcconfig: Configs/Signing.xcconfig
 
 targets:
 
@@ -37,6 +44,8 @@ targets:
         TARGETED_DEVICE_FAMILY: "1,2"
         DEVELOPMENT_TEAM: 92TUG3FDAV
         CODE_SIGN_STYLE: Automatic
+        CODE_SIGN_IDENTITY: "Apple Development"
+        PROVISIONING_PROFILE_SPECIFIER: ""
         INFOPLIST_FILE: MeditationSikuta/Info.plist
         GENERATE_INFOPLIST_FILE: NO
 
@@ -56,5 +65,7 @@ targets:
         TARGETED_DEVICE_FAMILY: "4"
         DEVELOPMENT_TEAM: 92TUG3FDAV
         CODE_SIGN_STYLE: Automatic
+        CODE_SIGN_IDENTITY: "Apple Development"
+        PROVISIONING_PROFILE_SPECIFIER: ""
         INFOPLIST_FILE: MeditationSikutaWatch/Info.plist
         GENERATE_INFOPLIST_FILE: NO
