@@ -16,10 +16,6 @@ settings:
     DEVELOPMENT_TEAM: 92TUG3FDAV
     CODE_SIGN_STYLE: Automatic
 
-configFiles:
-  Debug: Configs/Signing.xcconfig
-  Release: Configs/Signing.xcconfig
-
 targets:
 
   MeditationSikuta:
@@ -33,9 +29,6 @@ targets:
     dependencies:
       - target: MeditationSikutaWatch
         embed: true
-    configFiles:
-      Debug: Configs/Signing.xcconfig
-      Release: Configs/Signing.xcconfig
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.dzanino.meditation-sikuta
@@ -44,8 +37,8 @@ targets:
         TARGETED_DEVICE_FAMILY: "1,2"
         DEVELOPMENT_TEAM: 92TUG3FDAV
         CODE_SIGN_STYLE: Automatic
-    info:
-      path: MeditationSikuta/Info.plist
+        INFOPLIST_FILE: MeditationSikuta/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
 
   MeditationSikutaWatch:
     type: application
@@ -55,9 +48,6 @@ targets:
         createIntermediateGroups: true
       - path: MeditationSikutaWatch
         createIntermediateGroups: true
-    configFiles:
-      Debug: Configs/Signing.xcconfig
-      Release: Configs/Signing.xcconfig
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.dzanino.meditation-sikuta.watchkitapp
@@ -66,5 +56,5 @@ targets:
         TARGETED_DEVICE_FAMILY: "4"
         DEVELOPMENT_TEAM: 92TUG3FDAV
         CODE_SIGN_STYLE: Automatic
-    info:
-      path: MeditationSikutaWatch/Info.plist
+        INFOPLIST_FILE: MeditationSikutaWatch/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
