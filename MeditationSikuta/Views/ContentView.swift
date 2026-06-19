@@ -13,23 +13,23 @@ struct ContentView: View {
                     .padding(.top, 8)
                     .padding(.horizontal, 24)
 
-                Spacer(minLength: 16)
+                Spacer(minLength: 8)
 
-                // Breathing circle
+                // Breathing circle — fixed size, never too large
                 BreathingAnimationView(vm: vm)
-                    .frame(maxHeight: 360)
+                    .frame(width: 300, height: 300)
 
-                Spacer(minLength: 16)
+                Spacer(minLength: 8)
 
                 // Status text
                 statusArea
                     .padding(.horizontal, 24)
 
-                // Big start button
+                // Big start button — always pinned near bottom
                 startButton
                     .padding(.horizontal, 24)
-                    .padding(.top, 16)
-                    .padding(.bottom, 32)
+                    .padding(.top, 12)
+                    .padding(.bottom, 40)
             }
         }
         .sheet(isPresented: $showSettings) {

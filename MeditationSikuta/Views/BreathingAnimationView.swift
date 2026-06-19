@@ -3,7 +3,7 @@ import SwiftUI
 struct BreathingAnimationView: View {
     @ObservedObject var vm: BreathingViewModel
 
-    private let baseSize: CGFloat = 220
+    private let baseSize: CGFloat = 160
 
     var body: some View {
         ZStack {
@@ -75,12 +75,12 @@ struct BreathingAnimationView: View {
     private var labelOverlay: some View {
         VStack(spacing: 6) {
             if vm.state == .idle {
-                Text("Šikuta")
-                    .font(.system(size: 28, weight: .semibold, design: .rounded))
-                    .foregroundStyle(.white)
-                Text("Dýchacie cvičenie")
-                    .font(.system(size: 14, weight: .regular, design: .rounded))
-                    .foregroundStyle(.white.opacity(0.5))
+                Image(systemName: "play.fill")
+                    .font(.system(size: 32, weight: .semibold))
+                    .foregroundStyle(.white.opacity(0.9))
+                Text("Štart")
+                    .font(.system(size: 20, weight: .semibold, design: .rounded))
+                    .foregroundStyle(.white.opacity(0.85))
             } else if vm.state == .complete {
                 Image(systemName: "checkmark.circle.fill")
                     .font(.system(size: 44))
