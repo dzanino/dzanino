@@ -13,6 +13,8 @@ final class AudioManager: NSObject, ObservableObject {
     private let playerNode = AVAudioPlayerNode()
     private let speechSynthesizer = AVSpeechSynthesizer()
     private var isEngineRunning = false
+    private let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+    private let notificationFeedback = UINotificationFeedbackGenerator()
 #endif
 
     override init() {
@@ -49,6 +51,7 @@ final class AudioManager: NSObject, ObservableObject {
 
     func playTone(for phase: BreathingPhase, duration: Double = 0.6) {
 #if os(iOS)
+        impactFeedback.impactOccurred(intensity: 0.6)
         guard isToneEnabled, isEngineRunning else { return }
         guard let buffer = generateTone(frequency: phase.frequency, duration: duration) else { return }
         playerNode.stop()
@@ -74,6 +77,9 @@ final class AudioManager: NSObject, ObservableObject {
     }
 
     func speakSessionComplete() {
+#if os(iOS)
+        notificationFeedback.notificationOccurred(.success)
+#endif
         speak("Výborne! Cvičenie je ukončené. Zostaňte v pokoji ešte chvíľu.")
     }
 

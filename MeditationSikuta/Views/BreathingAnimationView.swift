@@ -8,10 +8,24 @@ struct BreathingAnimationView: View {
     var body: some View {
         ZStack {
             glowRings
+            progressRing
             mainCircle
             labelOverlay
         }
         .frame(width: baseSize * 1.8, height: baseSize * 1.8)
+    }
+
+    private var progressRing: some View {
+        let progress = vm.state == .active || vm.state == .paused ? vm.progress : 0.0
+        return Circle()
+            .trim(from: 0, to: CGFloat(progress))
+            .stroke(
+                vm.currentPhase.accentColor.opacity(0.55),
+                style: StrokeStyle(lineWidth: 2.5, lineCap: .round)
+            )
+            .frame(width: baseSize * 1.72, height: baseSize * 1.72)
+            .rotationEffect(.degrees(-90))
+            .animation(.easeInOut(duration: 0.5), value: vm.currentCycle)
     }
 
     private var glowRings: some View {
