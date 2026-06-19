@@ -36,7 +36,8 @@ final class AudioManager: NSObject, ObservableObject {
 
     private func setupAudioEngine() {
         audioEngine.attach(playerNode)
-        audioEngine.connect(playerNode, to: audioEngine.mainMixerNode, format: nil)
+        let format = AVAudioFormat(standardFormatWithSampleRate: 44100, channels: 2)
+        audioEngine.connect(playerNode, to: audioEngine.mainMixerNode, format: format)
         do {
             try audioEngine.start()
             isEngineRunning = true
@@ -87,9 +88,10 @@ final class AudioManager: NSObject, ObservableObject {
     private func generateTone(frequency: Double, duration: Double) -> AVAudioPCMBuffer? {
         let sampleRate: Double = 44100
         let frameCount = AVAudioFrameCount(sampleRate * duration)
-        guard let format = AVAudioFormat(standardFormatWithSampleRate: sampleRate, channels: 1),
+        guard let format = AVAudioFormat(standardFormatWithSampleRate: sampleRate, channels: 2),
               let buffer = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: frameCount),
-              let channelData = buffer.floatChannelData?[0]
+              let left = buffer.floatChannelData?[0],
+              let right = buffer.floatChannelData?[1]
         else { return nil }
 
         buffer.frameLength = frameCount
@@ -106,7 +108,8 @@ final class AudioManager: NSObject, ObservableObject {
                 sample *= Float(total - i) / Float(fadeLength)
             }
 
-            channelData[i] = sample
+            left[i] = sample
+            right[i] = sample
         }
         return buffer
     }
