@@ -52,6 +52,13 @@ targets:
   MeditationSikutaWatch:
     type: application
     platform: watchOS
+    info:
+      path: MeditationSikutaWatch/Info.plist
+      properties:
+        CFBundleDisplayName: Šikuta
+        CFBundleName: Šikuta
+        WKApplication: true
+        WKCompanionAppBundleIdentifier: com.dzanino.meditation-sikuta
     sources:
       - path: Shared
         createIntermediateGroups: true
@@ -67,5 +74,3 @@ targets:
         CODE_SIGN_STYLE: Automatic
         CODE_SIGN_IDENTITY: "Apple Development"
         PROVISIONING_PROFILE_SPECIFIER: ""
-        INFOPLIST_FILE: MeditationSikutaWatch/Info.plist
-        GENERATE_INFOPLIST_FILE: NO
