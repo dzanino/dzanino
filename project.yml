@@ -61,3 +61,4 @@ targets:
         CFBundleName: Šikuta
         CFBundleDisplayName: Šikuta
         WKApplication: true
+        WKCompanionAppBundleIdentifier: com.dzanino.meditation-sikuta
