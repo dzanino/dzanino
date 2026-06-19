@@ -35,12 +35,6 @@ targets:
       INFOPLIST_KEY_UILaunchScreen_Generation: "YES"
     info:
       path: MeditationSikuta/Info.plist
-      properties:
-        CFBundleName: Meditation Šikuta
-        CFBundleDisplayName: Meditation Šikuta
-        UIUserInterfaceStyle: Dark
-        NSMicrophoneUsageDescription: Aplikácia nepoužíva mikrofón.
-        NSSpeechRecognitionUsageDescription: Aplikácia nepoužíva rozoznávanie reči.
 
   MeditationSikutaWatch:
     type: application
@@ -57,8 +51,3 @@ targets:
       TARGETED_DEVICE_FAMILY: "4"
     info:
       path: MeditationSikutaWatch/Info.plist
-      properties:
-        CFBundleName: Šikuta
-        CFBundleDisplayName: Šikuta
-        WKApplication: true
-        WKCompanionAppBundleIdentifier: com.dzanino.meditation-sikuta
